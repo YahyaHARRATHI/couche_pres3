@@ -19,14 +19,13 @@ xmlns:p="http://primefaces.org/ui"
     
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="username" value="Username:" />
-            <p:inputText id="username" value="#{authenBean.login}" required="true" label="username" />
+            <p:inputText id="username" value="#{authenBean.login}" required="true" />
  
             <h:outputLabel for="password" value="Password:" />
-            <p:password id="password" value="#{authenBean.login}" required="true" label="password" />
+            <p:inputText id="password" value="#{authenBean.password}" required="true"  />
  
             <f:facet name="footer">
-                <p:commandButton value="Login" action="#{authenBean.connect}"
-                                 />
+                <p:commandButton value="Login" action="#{authenBean.connect}"/>
             </f:facet>  
         </h:panelGrid>
    

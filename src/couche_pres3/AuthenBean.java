@@ -52,16 +52,16 @@ public class AuthenBean implements Serializable {
 		}
 			
 		else  {
-			//ajout le client dans la session
+			//ajout le clientBean dans la session
 			//le client doit etre de porté session
 			//Recupération de facesContext
 			FacesContext context=FacesContext.getCurrentInstance();
 			//soit on l'ajout dans map
-			//ou
+			//ou httpsession
 			HttpSession session=(HttpSession) context.getExternalContext().getSession(true);
-			session.setAttribute("client", c);
+			session.setAttribute("IdClient", c.getId());
 			
-		return "Authentification";
+		return "Accueil";
 	}
 	}
 

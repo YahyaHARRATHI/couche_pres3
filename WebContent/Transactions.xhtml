@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Transaction</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="2">
+
+			<h3>Numero compte :</h3>
+			<h:inputText value="#{transactionBean.num}" />
+
+			<h3>Montant :</h3>
+			<h:inputText value="#{transactionBean.montant}" />
+
+
+			<h:commandButton action="#{transactionBean.transaction()}"
+				value="débiter" />
+
+		</h:panelGrid>
+
+
+	</h:form>
+</h:body>
+</html>

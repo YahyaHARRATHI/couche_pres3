@@ -60,7 +60,7 @@ public class ClientBean {
 		factclient=new SpringFactoryClient();
 		List<Client> client= new ArrayList<Client>();
 		client=factclient.getClientService().findClient(nom, prenom);
-		Client res=client.get(0);
+		Client res=client.get(1);
 		/*for (Iterator iterator = client.iterator(); iterator.hasNext();) {
 			Client client2 = (Client) iterator.next();
 			this.comptes=client2.getComptes();
