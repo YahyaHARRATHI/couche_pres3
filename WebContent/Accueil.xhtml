@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<!-- client est un attribut dans session -->
-Bonjour #{client.nom}
+
 
 
 
@@ -41,9 +41,11 @@ Bonjour #{client.nom}
 	<h:panelGrid columns="1">
 
 
-<c:forEach var="c" items="#{clientBean.comptes}">
-		<h:link value="#{c}" outcome="Transactions" />
-	</c:forEach>	
+		<ui:repeat var="c" value="#{clientBean.comptes}"></ui:repeat>
+			<h:link value="#{c}" outcome="Transactions">
+				<f:param  name="numparam" value="#{c.num}" /> 
+			</h:link>
+		</c:forEach>
 
 	</h:panelGrid>
 
