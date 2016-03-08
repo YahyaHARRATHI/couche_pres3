@@ -6,24 +6,23 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
+import dal.services.SpringFactoryCompte;
+
 @Named
 @RequestScoped
 public class TransactionBean {
 	
-	private Long num;
+	private int num;
 	private int montant;
+	SpringFactoryCompte factComptes = new SpringFactoryCompte();
 	
-	public Long getNum() {
-		//recuperation de champs num de  beanClient 
-		// wthis when we use map
-		HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		Long res=Long.parseLong(req.getParameter("IdClient"));
-		//in our case we usued httpsession
+	public int getNum() {
 		
-		return res;
+		
+		return num;
 		
 	}
-	public void setNum(Long num) {
+	public void setNum(int num) {
 		this.num = num;
 	}
 	public int getMontant() {
@@ -33,8 +32,16 @@ public class TransactionBean {
 		this.montant = montant;
 	}
 	public TransactionBean() {
-		super();
-		// TODO Auto-generated constructor stub
+		
+		//recuperation de champs num de  beanClient 
+				// wthis when we use map
+				HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+				System.out.println(req.getParameter("c"));
+				
+				//recuperation de comptes
+				// this.num=factComptes.getCompteService().findCompte(res).get(0).getNumero();
+				//in our case we usued httpsession
+				
 	}
 	
 	
