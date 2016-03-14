@@ -3,34 +3,24 @@ package couche_pres3;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ViewScoped;
-
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import dal.services.SpringFactoryCompte;
 
-@ManagedBean
+@Named
 //@RequestScoped
-@ViewScoped// car partagé par 2 méthodes debiter et 
+@javax.faces.view.ViewScoped
+// car partagé par 2 méthodes debiter et 
 // on a besion d'intercepteur @postConstruct pour le constructeur transactionbean() 
 public class TransactionBean implements Serializable {
-	@ManagedProperty(value="#{param.numparam}")
-	private String parm;
+	
 	private int num;
 	private int montant;
-	
-	   
-	public String getParm() {
-		return parm;
-	}
-	public void setParm(String parm) {
-		this.parm = parm;
-	}
-	public  TransactionBean(){
-		this.num=Integer.parseInt(parm);
-		
-	}
+
 	SpringFactoryCompte factComptes = new SpringFactoryCompte();
 	
 	public int getNum() {
@@ -46,13 +36,14 @@ public class TransactionBean implements Serializable {
 	public void setMontant(int montant) {
 		this.montant = montant;
 	}
-	/*
+	
 	public TransactionBean() {
 		
 		//recuperation de champs num de  beanClient 
 				// wthis when we use map
 				HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 				int res=Integer.parseInt(req.getParameter("numparam"));
+				System.out.println("res");
 				this.num=res;
 				//recuperation de comptes
 				// this.num=factComptes.getCompteService().findCompte(res).get(0).getNumero();
@@ -60,7 +51,7 @@ public class TransactionBean implements Serializable {
 				
 	}
 	
-	*/
+	
 	public String transaction1(){
 		
 		return null;
