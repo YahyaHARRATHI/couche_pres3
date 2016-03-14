@@ -3,14 +3,13 @@ package couche_pres3;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.interceptor.AroundInvoke;
-import javax.interceptor.InvocationContext;
+
 
 import dal.beans.Client;
 import dal.beans.Compte;
@@ -19,7 +18,7 @@ import dal.services.SpringFactoryClient;
 @Named
 @RequestScoped
 public class ClientBean {
-	private Logger logger;
+	
 	private Long num;
 	private String nom;
 	private String prenom ;

@@ -11,9 +11,6 @@
 <h:body>
 	<!-- client est un attribut dans session -->
 
-
-
-
 <h:form>
 		<h:panelGrid columns="2">
 
@@ -34,20 +31,14 @@
 	</h:form>
 
 
-
-
-
-
-	<h:panelGrid columns="1">
-
-
-		<ui:repeat var="c" value="#{clientBean.comptes}"></ui:repeat>
+		<ui:repeat var="c" value="#{clientBean.comptes}">
 			<h:link value="#{c}" outcome="Transactions">
-				<f:param  name="numparam" value="#{c.num}" /> 
+				<f:param name="numparam" value="#{c.numero}" /> 
 			</h:link>
-		</c:forEach>
+		<br/>
+		</ui:repeat>
 
-	</h:panelGrid>
+	
 
 
 </h:body>

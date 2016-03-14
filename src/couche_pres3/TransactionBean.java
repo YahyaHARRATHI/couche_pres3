@@ -1,22 +1,36 @@
 package couche_pres3;
 
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.spi.Bean;
+
+import java.io.Serializable;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
+
 
 import dal.services.SpringFactoryCompte;
 
-@Named
+@ManagedBean
 //@RequestScoped
-@ViewScoped // car partagé par 2 méthodes debiter et 
+@ViewScoped// car partagé par 2 méthodes debiter et 
 // on a besion d'intercepteur @postConstruct pour le constructeur transactionbean() 
-public class TransactionBean {
-	
+public class TransactionBean implements Serializable {
+	@ManagedProperty(value="#{param.numparam}")
+	private String parm;
 	private int num;
 	private int montant;
+	
+	   
+	public String getParm() {
+		return parm;
+	}
+	public void setParm(String parm) {
+		this.parm = parm;
+	}
+	public  TransactionBean(){
+		this.num=Integer.parseInt(parm);
+		
+	}
 	SpringFactoryCompte factComptes = new SpringFactoryCompte();
 	
 	public int getNum() {
@@ -32,6 +46,7 @@ public class TransactionBean {
 	public void setMontant(int montant) {
 		this.montant = montant;
 	}
+	/*
 	public TransactionBean() {
 		
 		//recuperation de champs num de  beanClient 
@@ -45,7 +60,7 @@ public class TransactionBean {
 				
 	}
 	
-	
+	*/
 	public String transaction1(){
 		
 		return null;
